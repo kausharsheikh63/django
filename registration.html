@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer & Seller Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="date"], input[type="number"], textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .seller-fields {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>E-Commerce Registration Form</h2>
+    <form action="#" method="post">
+
+      <!-- User Role (Buyer or Seller) -->
+      <div class="form-group">
+        <label for="role">I am a:</label>
+        <select id="role" name="role" onchange="toggleRoleFields()" required>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+      </div>
+
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <!-- Email Address -->
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <!-- Address (For Buyers) -->
+      <div class="form-group">
+        <label for="address">Shipping Address:</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <!-- Payment Method (For Buyers) -->
+      <div class="form-group">
+        <label for="payment">Preferred Payment Method:</label>
+        <select id="payment" name="payment" required>
+          <option value="credit_card">Credit Card</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank_transfer">Bank Transfer</option>
+        </select>
+      </div>
+
+      <!-- Seller Fields -->
+      <div class="seller-fields">
+        <h3>Seller Information</h3>
+        <!-- Business Name -->
+        <div class="form-group">
+          <label for="business_name">Business Name:</label>
+          <input type="text" id="business_name" name="business_name">
+        </div>
+
+        <!-- Store Description -->
+        <div class="form-group">
+          <label for="store_description">Store Description:</label>
+          <textarea id="store_description" name="store_description"></textarea>
+        </div>
+
+        <!-- Tax ID -->
+        <div class="form-group">
+          <label for="tax_id">Tax ID:</label>
+          <input type="text" id="tax_id" name="tax_id">
+        </div>
+
+        <!-- Seller's Address -->
+        <div class="form-group">
+          <label for="seller_address">Business Address:</label>
+          <textarea id="seller_address" name="seller_address"></textarea>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+
+      <!-- Submit Button -->
+      <input type="submit" value="Register">
+
+    </form>
+
+    <div class="form-footer">
+      <p>Already have an account? <a href="#">Login here</a></p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to toggle visibility of seller-specific fields
+    function toggleRoleFields() {
+      var role = document.getElementById('role').value;
+      var sellerFields = document.querySelector('.seller-fields');
+
+      if (role === 'seller') {
+        sellerFields.style.display = 'block';
+      } else {
+        sellerFields.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
